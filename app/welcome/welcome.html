@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>WebApp Home Page</title>
+<meta name="=viewport" content="widdth=device-width " , initial-scale=1.0> 
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+
+
+<!-- 
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a href="#" class="navbar-brand">WebApp</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="#/welcome">Home</a></li>
+			<li><a href="#/addPost">Add Post</a></li>
+			<li ng-click="logout()"><a href="#">Logout</a></li>
+		</ul>
+	</div>
+</nav> -->
+
+<header class="text-gray-700 body-font">
+	<div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+	  <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+		<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+		  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+		</svg>
+		<span class="ml-3 text-xl">SmartRationCardSystem - Admin</span>
+	  </a>
+	  <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+		<a class="mr-5 hover:text-gray-900"  href="#/welcome" >Home</a>
+		<a class="mr-5 hover:text-gray-900">Distributers</a>
+		<a class="mr-5 hover:text-gray-900">Consumers</a>
+		<a class="mr-5 hover:text-gray-900" ng-click="logout()">LogOut</a>
+	  </nav>
+	  <button class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0">Button
+		<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+		  <path d="M5 12h14M12 5l7 7-7 7"></path>
+		</svg>
+	  </button>
+	</div>
+  </header>
+<body>
+	
+
+	<section class="  text-gray-700 body-font">
+		<div class="container px-5 py-24 mx-auto">
+		  <div class="flex flex-wrap -mx-4 -mb-10 text-center">
+			<div class="sm:w-1/2 mb-10 px-4">
+			  <div class="rounded-lg h-64 overflow-hidden">
+				<img alt="content" class="object-cover object-center h-full w-full" src="https://dummyimage.com/1201x501">
+			  </div>
+			  <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Distributers</h2>
+			  <p class="leading-relaxed text-base">Kyc Document Of Distributers . Verify To Activate Distributers Account</p>
+			  <button class="flex mx-auto mt-6 text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded" ng-click="viewDistributers()" >
+				 View</button>
+			</div>
+			<div class="sm:w-1/2 mb-10 px-4">
+			  <div class="rounded-lg h-64 overflow-hidden">
+				<img alt="content" class="object-cover object-center h-full w-full" src="https://dummyimage.com/1202x502">
+			  </div>
+			  <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Consumer</h2>
+			  <p class="leading-relaxed text-base">Kyc document of Consumers , Verify this document to Activate Consumer Account.</p>
+			  <button class="flex mx-auto mt-6 text-white bg-indigo-500 border-0 py-2 px-5 focus:outline-none hover:bg-indigo-600 rounded">View</button>
+			</div>
+		  </div>
+		</div>
+	  </section>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Post Page</title>
+</head>
+<body ng-controller="AddPostCtrl">
+
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<header class="text-gray-700 body-font">
+			<div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+			  <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+				<a class="mr-5 hover:text-gray-900">CustomerKyc</a>
+				<a class="mr-5 hover:text-gray-900">Second Link</a>
+				<a class="mr-5 hover:text-gray-900">Third Link</a>
+				<a class="hover:text-gray-900">Fourth Link</a>
+			  </nav>
+			  <a class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-green-500 rounded-full" viewBox="0 0 24 24">
+				  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+				</svg>
+				<span class="ml-3 text-xl">tailblocks</span>
+			  </a>
+			  <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+				<button class="inline-flex items-center bg-gray-200 border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0">Button
+				  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+					<path d="M5 12h14M12 5l7 7-7 7"></path>
+				  </svg>
+				</button>
+			  </div>
+			</div>
+		  </header>
+
+		<!-- <div class="navbar-header">
+			<a href="#" class="navbar-brand">WebApp</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><a href="#/welcome">Home</a></li>
+			<li class="active"><a href="#/addPost">Add Post</a></li>
+			<li><a href="#">Logout</a></li>
+		</ul> -->
+	</div>
+</nav>
+
+
+
+<div class="container" ng-show="success">
+	<div class="row">
+		<div class="alert alert-success">
+			<strong>Success!</strong> The post has beed added.
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<form role="form" name="postForm" ng-submit="createPost()" novalidate="">
+		<legend>Create Post</legend>
+		<div class="row">
+			<div class="col-md-5">
+				<div class="form-group" ng-class="{'has-error': postForm.titleTxt.$invalid && postForm.titleTxt.$touched}">
+					<label for="titleTxt">Post Title</label>
+					<input type="text" name="titleTxt" class="form-control" placeholder="Title" ng-model="article.titleTxt" ng-minlength = "5" required="">
+					<small class="help-block" ng-show="postForm.titleTxt.$error.minlength && postForm.titleTxt.$touched">Please enter a valid title for post.</small>
+				</div>
+				<div class="form-group" ng-class="{'has-error': postForm.postTxt.$invalid && postForm.postTxt.$touched}">
+					<label for="postTxt">Post</label>
+					<textarea name="postTxt" class="form-control" placeholder="Post" ng-model="article.postTxt" ng-minlength="20" required=""></textarea>
+					<small class="help-block" ng-show="postForm.postTxt.$error.minlength && postForm.postTxt.$touched">Please enter a valid post.</small>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary" ng-disabled="postForm.$invalid">Add Post</button>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+</body>
+</html>
