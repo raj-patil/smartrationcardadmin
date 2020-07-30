@@ -12,6 +12,7 @@ angular.module('webApp.addPost', ['ngRoute', 'firebase'])
 .controller('AddPostCtrl', ['$scope', '$firebaseArray', '$location', 'CommonProp', function($scope, $firebaseArray, $location, CommonProp){
 
 	$scope.username = CommonProp.getUser();
+	
 
 	if(!$scope.username){
 		$location.path('/home');

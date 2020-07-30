@@ -19,7 +19,60 @@ angular.module('webApp.welcome', ['ngRoute', 'firebase'])
 	}
 
 	var ref = firebase.database().ref().child('Distributors');
-	$scope.distributers = $firebaseArray(ref);	
+	$scope.distributers = $firebaseArray(ref);
+	
+	var approvedDistributerRef = firebase.database().ref().child('Distributors').orderByChild("kycDone").equalTo(true);
+	$scope.countapproveddistributer = $firebaseArray(approvedDistributerRef);
+
+	var approvedConsumerRef = firebase.database().ref().child('Customers').orderByChild("kycDone").equalTo(true);
+	$scope.countapprovedconsumers = $firebaseArray(approvedConsumerRef);
+
+
+
+	// var ref = firebase.database().ref().child('Distributors');
+	// $scope.Totaldistributers = $firebaseArray(ref);
+	
+
+	var Customerref = firebase.database().ref().child('Customers');
+	$scope.TotalCustomers = $firebaseArray(Customerref);
+	
+	$scope.distributers.$loaded().then(function(distributers) {
+
+
+		// $scope.TotalCustomers.$loaded().then(function(TotalCustomers){
+
+		// 	$scope.countapproveddistributer.$loaded().then(function(countapproveddistributer){
+
+		// 		$scope.countapprovedconsumersr.$loaded().then(function(countapprovedconsumersr){
+
+					var TotaltaskProgress = TotalCustomers.length + distributers.length ;
+					var perTaskProgress =countapproveddistributer.length +countapprovedconsumersr.length ;
+				
+					$scope.Taskremain =( TotaltaskProgress / perTaskProgress ) * 100 ;
+
+					var e1 = document.getElementById("progress_bar");
+						e1.style.width = "50px";
+						$(".progress-bar").css('width', $scope.Taskremain+'70%');
+					//  $('#progress_bar').addRule('width',$scope.Taskremain+ "%");
+					console.log($scope.Taskremain); 
+		// 		});
+	
+
+		// 	s
+		// 	});
+
+
+
+		// });
+		
+
+		// console.log(distributers.length); 
+	 });
+
+
+	// console.log("Total Customers" +$scope.distributers.length );
+	// console.log("TotalProgress" +TotaltaskProgresss);
+	// console.log("TaskPercentage" +$scope.TaskRemain);
 
 	$scope.editPost = function(id){
 		var ref = firebase.database().ref().child('Articles/' + id);
@@ -31,6 +84,13 @@ angular.module('webApp.welcome', ['ngRoute', 'firebase'])
 	{
 		$location.path('/distributers');
 	}
+
+	$scope.viewConsumers =function()
+
+	{
+		$location.path('/consumers');
+	}
+
 
 	$scope.kycDocumentPage =function(id)
 	{

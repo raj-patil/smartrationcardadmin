@@ -25,6 +25,7 @@ angular.module('webApp.home', ['ngRoute', 'firebase'])
 		auth.$signInWithEmailAndPassword(username, password).then(function(){
 			console.log("User Login Successful");
 			CommonProp.setUser($scope.user.email);
+			
 			$location.path('/welcome');
 		}).catch(function(error){
 			$scope.errMsg = true;
