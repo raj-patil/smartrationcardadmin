@@ -25,9 +25,19 @@ angular.module('webApp.kycdoc', ['ngRoute', 'firebase'])
 	}
 
 			
-	var ref = firebase.database().ref().child('KYC').child(distributeridservice.get());
-	$scope.kycdoc = $firebaseObject(ref);	
-	
+	var ref = firebase.database().ref().child('DistributorKYC').child(distributeridservice.get());
+    $scope.kycdoc = $firebaseObject(ref);	
+    
+    var adharcardRef = firebase.database().ref().child('DistributorKYC').child(distributeridservice.get()).child("aadharcard");
+    $scope.adharcard = $firebaseObject(adharcardRef);
+    
+    
+    var pancardRef = firebase.database().ref().child('DistributorKYC').child(distributeridservice.get()).child("aadharcard");
+    $scope.pancard = $firebaseObject(pancardRef);
+
+
+    var shoplicenceRef = firebase.database().ref().child('DistributorKYC').child(distributeridservice.get()).child("aadharcard");
+    $scope.shoplicence = $firebaseObject(shoplicenceRef);
 
 	console.log("distributerid " + distributeridservice.get());
 	console.log("Inside Init: " + $scope.kycdoc.qrlink);
@@ -39,7 +49,7 @@ angular.module('webApp.kycdoc', ['ngRoute', 'firebase'])
         var ref = firebase.database().ref().child('Distributors').child(distributeridservice.get());
             ref.update({
                 accountStatus: "approved",
-                kycDone: true
+                kycDone: "yes"
             }).then(function(ref){
                 $scope.$apply(function(){
 					$location.path('/distributers');
@@ -55,7 +65,7 @@ angular.module('webApp.kycdoc', ['ngRoute', 'firebase'])
             var ref = firebase.database().ref().child('Distributors').child(distributeridservice.get());
                 ref.update({
                     accountStatus: "reject",
-                    kycDone: false
+                    kycDone: "no"
                 }).then(function(ref){
                     $scope.$apply(function(){
                         $location.path('/distributers');

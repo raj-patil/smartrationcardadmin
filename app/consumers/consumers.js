@@ -20,8 +20,19 @@ angular.module('webApp.consumers', ['ngRoute', 'firebase'])
 		$location.path('/home');
     }
     
-    var ref = firebase.database().ref().child('Customers').orderByChild("kycDone").equalTo(false);
-	$scope.customers = $firebaseArray(ref);	
+    var ref = firebase.database().ref().child('Customers').orderByChild("kycDone").equalTo("no");
+    $scope.customers = $firebaseArray(ref);	
+    
+
+
+    $scope.profilepicfun =function(id)
+	{
+    
+    var ProfilePicRef = firebase.database().ref().child('CustomerKYC').child(id).child('profilepic');
+    $scope.profilepic = $firebaseObject(ProfilePicRef);	
+    console.log("pofilepic + id " +$scope.profilepic.url + id);
+
+    };
 
     // $scope.kycDocumentPage =function(id)
 	// {
@@ -33,6 +44,15 @@ angular.module('webApp.consumers', ['ngRoute', 'firebase'])
 	
 
     // };
+
+
+
+    $scope.pendingpost = function(id){
+		var ref = firebase.database().ref().child('Customers').child(id);
+        $scope.pendingpost = $firebaseObject(ref);
+        console.log("click on approve post - " +$scope.pendingpost.shopname );
+	};
+
 
     $scope.kycDocumentPage =function(id)
 	{
@@ -53,7 +73,7 @@ angular.module('webApp.consumers', ['ngRoute', 'firebase'])
         var ref = firebase.database().ref().child('Customers').child(id);
             ref.update({
                 accountStatus: "approved",
-                kycDone: true
+                kycDone: "yes"
             }).then(function(ref){
                 $scope.$apply(function(){
                     $("#Approvmodel").modal('hide');
@@ -69,7 +89,7 @@ angular.module('webApp.consumers', ['ngRoute', 'firebase'])
         var ref = firebase.database().ref().child('Customers').child(id);
             ref.update({
                 accountStatus: "reject",
-                kycDone: false
+                kycDone: "no"
             }).then(function(ref){
                 $scope.$apply(function(){
                     $("#rejectmodel").modal('hide');

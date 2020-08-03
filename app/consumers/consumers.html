@@ -289,7 +289,7 @@
           <!-- Nav Item - User Information -->
           <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="mr-2 d-none d-lg-inline text-gray-600 small">Pooja Bhagat</span>
+              <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
               <img class="img-profile rounded-circle" src="img/admin.jpg">
             </a>
             <!-- Dropdown - User Information -->
@@ -324,7 +324,7 @@
 <!-- nav End -->
 <div class="container">
     <div class="flex flex-col text-center w-full mb-20">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Pending Kyc Verification/h1>
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Pending Kyc Verification</h1>
         
       </div>
   
@@ -340,9 +340,9 @@
 
       <div class="card-body">
         <div class="row">
-            <div class="col-xs-4">
-              <img class="imageClass" style="width: 200px; height: 200px;" [src]="distributer.hotoPath" />
-            </div>
+            <!-- <div class="col-xs-4" ng-init="profilepicfun(customer.$id)">
+              <img class="imageClass" style="width: 200px; height: 200px;" [src]="profilepic.url" />
+            </div> -->
            
   <div class="w-25">
 
@@ -374,8 +374,8 @@
            </div>
             </div>
             <div class="flex-row ">
-            <button type="submit" class="btn  btn-primary" data-target="#Approvmodel" data-toggle="modal"  ng-click="pendingpost(distributer.$id)">Approv</button>
-            <button type="submit" class="btn  btn-primary" data-target="#rejectmodule" data-toggle="modal"  ng-click="pendingpost(distributer.$id)">Reject</button>
+            <button type="submit" class="btn  btn-primary" data-target="#Approvmodel" data-toggle="modal"  ng-click="pendingpost(customer.$id)">Approv</button>
+            <button type="submit" class="btn  btn-primary" data-target="#rejectmodule" data-toggle="modal"  ng-click="pendingpost(customer.$id)">Reject</button>
           </div>
             <button type="submit" class="btn btn-lg btn-primary btn-block" data-toggle="modal"   ng-click="kycDocumentPage(customer.$id)">View</button>
           </div>
@@ -408,13 +408,13 @@
                     </div>
                     <div class="modal-body">
                         <form role="form">
-                            <div class="form-group">
-                                <label for="ShopName" ng-model="pendingpost.shopname">{{pendingpost.shopname}}</label>
+                            <!-- <div class="form-group">
+                                <label for="ShopName" ng-model="pendingpost.fname + pendingpost.lname">{{pendingpost.fname + pendingpost.lname}}</label>
                                 
-                            </div>
+                            </div> -->
                             <div class="form-group">
-                                <label for="post">Post</label>
-                                <textarea name="post" class="form-control" ng-model="pendingpost.shopname"></textarea>
+                                <label for="post">Customer Name</label>
+                                <textarea name="post" class="form-control" ng-model="pendingpost.fname + pendingpost.lname">{{pendingpost.fname +" "+ pendingpost.lname}}></textarea>
                             </div>
                         </form>
                     </div>
@@ -442,7 +442,7 @@
                                 
                             </div>
                             <div class="form-group">
-                                <label for="post">Post</label>
+                                <label for="post">ShopName</label>
                                 <textarea name="post" class="form-control" ng-model="pendingpost.shopname"></textarea>
                             </div>
                         </form>

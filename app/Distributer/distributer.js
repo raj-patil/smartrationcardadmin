@@ -19,7 +19,7 @@ angular.module('webApp.distributers', ['ngRoute', 'firebase'])
 		$location.path('/home');
     }
     
-    var ref = firebase.database().ref().child('Distributors').orderByChild("kycDone").equalTo(false);
+    var ref = firebase.database().ref().child('Distributors').orderByChild("kycDone").equalTo("no");
 	$scope.distributers = $firebaseArray(ref);	
 
     $scope.kycDocumentPage =function(id)
@@ -49,7 +49,7 @@ angular.module('webApp.distributers', ['ngRoute', 'firebase'])
         var ref = firebase.database().ref().child('Distributors').child(id);
             ref.update({
                 accountStatus: "approved",
-                kycDone: true
+                kycDone: "yes"
             }).then(function(ref){
                 $scope.$apply(function(){
                     $("#Approvmodel").modal('hide');
@@ -65,7 +65,7 @@ angular.module('webApp.distributers', ['ngRoute', 'firebase'])
             var ref = firebase.database().ref().child('Distributors').child(id);
                 ref.update({
                     accountStatus: "reject",
-                    kycDone: false
+                    kycDone: "no"
                 }).then(function(ref){
                     $scope.$apply(function(){
                         $("#rejectmodel").modal('hide');

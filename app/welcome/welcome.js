@@ -21,10 +21,10 @@ angular.module('webApp.welcome', ['ngRoute', 'firebase'])
 	var ref = firebase.database().ref().child('Distributors');
 	$scope.distributers = $firebaseArray(ref);
 	
-	var approvedDistributerRef = firebase.database().ref().child('Distributors').orderByChild("kycDone").equalTo(true);
+	var approvedDistributerRef = firebase.database().ref().child('Distributors').orderByChild("kycDone").equalTo("yes");
 	$scope.countapproveddistributer = $firebaseArray(approvedDistributerRef);
 
-	var approvedConsumerRef = firebase.database().ref().child('Customers').orderByChild("kycDone").equalTo(true);
+	var approvedConsumerRef = firebase.database().ref().child('Customers').orderByChild("kycDone").equalTo("yes");
 	$scope.countapprovedconsumers = $firebaseArray(approvedConsumerRef);
 
 
